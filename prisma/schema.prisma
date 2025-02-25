@@ -13,6 +13,7 @@ model User {
   email         String    @unique
   passwordHash  String
   referralCode  String    @unique @default(uuid())
+  expiresAt     DateTime? // Referral code expiration timestamp
   referredBy    String?
   createdAt     DateTime  @default(now())
   referrals     Referral[] @relation("Referrer")
